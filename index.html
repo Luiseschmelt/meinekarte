@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meine Leaflet Karte</title>
     
-    <!-- 1. ZUERST Leaflet CSS laden -->
-    <link rel="stylesheet" href="https://unpkg.com" />
+    <!-- Leaflet CSS von alternativem cdnjs-Server -->
+    <link rel="stylesheet" href="https://cloudflare.com" />
     
-    <!-- 2. DANACH Leaflet JavaScript laden (Wichtig für das "L") -->
-    <script src="https://unpkg.com"></script>
+    <!-- Leaflet JavaScript von alternativem cdnjs-Server -->
+    <script src="https://cloudflare.com"></script>
     
     <style>
         html, body {
@@ -32,23 +32,3 @@
 <body>
 
     <div id="map"></div>
-
-    <!-- 3. ERST GANZ ZUM SCHLUSS dein eigener Karten-Code -->
-    <script>
-        // Karte initialisieren
-        const map = L.map('map').setView([51.1657, 10.4515], 6);
-
-        // OpenStreetMap hinzufügen
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '© OpenStreetMap'
-        }).addTo(map);
-
-        // Marker hinzufügen
-        L.marker([51.1657, 10.4515]).addTo(map)
-            .bindPopup('Das ist die Mitte!')
-            .openPopup();
-    </script>
-
-</body>
-</html>
