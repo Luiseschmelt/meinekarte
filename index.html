@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meine Leaflet Karte</title>
     
-    <!-- Leaflet CSS -->
+    <!-- 1. ZUERST Leaflet CSS laden -->
     <link rel="stylesheet" href="https://unpkg.com" />
     
+    <!-- 2. DANACH Leaflet JavaScript laden (Wichtig für das "L") -->
+    <script src="https://unpkg.com"></script>
+    
     <style>
-        /* Macht die Seite vollflächig */
         html, body {
             height: 100%;
             margin: 0;
@@ -19,7 +21,6 @@
             justify-content: center;
             align-items: center;
         }
-        /* Zentriertes Kartenfenster mit fester Größe */
         #map {
             width: 80%;
             height: 70vh;
@@ -30,22 +31,20 @@
 </head>
 <body>
 
-    <!-- Das Karten-Element -->
     <div id="map"></div>
 
-    <!-- Leaflet JavaScript -->
-    <script src="https://unpkg.com"></script>
+    <!-- 3. ERST GANZ ZUM SCHLUSS dein eigener Karten-Code -->
     <script>
-        // Karte initialisieren (Zentriert auf Deutschland/Europa)
+        // Karte initialisieren
         const map = L.map('map').setView([51.1657, 10.4515], 6);
 
-        // OpenStreetMap Open-Source-Karte hinzufügen
+        // OpenStreetMap hinzufügen
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '© OpenStreetMap'
         }).addTo(map);
 
-        // Optional: Ein Beispiel-Marker in der Mitte
+        // Marker hinzufügen
         L.marker([51.1657, 10.4515]).addTo(map)
             .bindPopup('Das ist die Mitte!')
             .openPopup();
